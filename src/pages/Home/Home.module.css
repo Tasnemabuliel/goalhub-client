@@ -1,0 +1,46 @@
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #475569;
+  margin: 0 0 24px;
+}
+
+.ctas {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform .06s ease, box-shadow .2s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.primary {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+}
+.secondary {
+  background: #16a34a;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(22,163,74,0.25);
+}
+.tertiary {
+  background: #0ea5e9;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(14,165,233,0.25);
+}
