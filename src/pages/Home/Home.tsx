@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom'
-import { isAuthenticated } from '../../lib/auth'
 import styles from './Home.module.css'
 
 export default function Home() {
-  const authed = isAuthenticated()
   return (
     <section className={styles.hero}>
       <h1 className={styles.title}>GoalHub</h1>
