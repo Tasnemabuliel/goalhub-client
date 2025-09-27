@@ -1,40 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App'
-import Home from './pages/Home/Home'
-import Login from './pages/Login/Login'
-import Register from './pages/Register/Register'
-import Players from './pages/Players/Players'
-import Positions from './pages/Positions/Positions'
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import App from "./App";
+import Home from './pages/Home';
+import SuperAdminRegister from './pages/SuperAdmin/Register';
+import SuperAdminVerify from './pages/SuperAdmin/Verify';
+import SuperAdminLogin from './pages/SuperAdmin/Login';
+import SuperAdminLoginVerify from './pages/SuperAdmin/LoginVerify';
+import SuperAdminDashboard from './pages/SuperAdmin/Dashboard';
+import Test from './pages/Test';
 
-// 🟢 דפי סופר אדמין
-import SuperAdminDashboard from './pages/SuperAdminDashboard/SuperAdminDashboard'
-import SuperAdminLogin from './pages/SuperAdminLogin/SuperAdminLogin'
-
-import './styles/global.css'
-
-// כאן מגדירים את כל הראוטים
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <App />, 
     children: [
-      { index: true, element: <Home /> },
-      { path: 'login', element: <Login /> },
-      { path: 'register', element: <Register /> },
-      { path: 'players', element: <Players /> },
-      { path: 'positions', element: <Positions /> },
-
-      // 🟢 ראוטים חדשים לסופר אדמין
-      { path: 'superadmin/login', element: <SuperAdminLogin /> },
-      { path: 'superadmin/dashboard', element: <SuperAdminDashboard /> }
+      { path: '/', element: <Home /> },
+      { path: '/superadmin', element: <Navigate to="/superadmin/dashboard" /> },
+      { path: '/superadmin/register', element: <SuperAdminRegister /> },
+      { path: '/superadmin/verify', element: <SuperAdminVerify /> },
+      { path: '/superadmin/login', element: <SuperAdminLogin /> },
+      { path: '/superadmin/login/verify', element: <SuperAdminLoginVerify /> },
+      { path: '/superadmin/dashboard', element: <SuperAdminDashboard /> },
+      { path: '/test', element: <Test /> },
+      // אין דפים כרגע
     ]
   }
-])
+]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-)
+export default function Main() {
+  return <RouterProvider router={router} />;
+}

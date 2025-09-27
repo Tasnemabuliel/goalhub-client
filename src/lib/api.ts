@@ -1,8 +1,8 @@
 import { authHeader } from './auth'
 
 // קביעת כתובת הבסיס:
-// בזמן פיתוח נשתמש בשרת ה־API המקומי (פורט 4000)
-// בפרודקשן נשלח בקשות יחסיות (כשהפרונט והבק־אנד מאוחדים)
+// בזמן פיתוח נשתמש בשרת ה-API המקומי (פורט 4000)
+// בפרודקשן נשלח בקשות יחסיות (כשהפרונט והבקאנד מאוחדים)
 const BASE_URL = import.meta.env.DEV
   ? 'http://localhost:4000/api'
   : '/api'
@@ -19,7 +19,7 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     let message = `HTTP ${res.status}`
     try {
       const data = await res.json()
-      message = (data as any)?.message || message
+      message = (data as any)?.error || (data as any)?.message || message
     } catch {
       // אם השרת לא מחזיר JSON, נשאיר את הסטטוס כברירת מחדל
     }
@@ -43,3 +43,5 @@ export const api = {
   del: <T>(path: string) =>
     request<T>(path, { method: 'DELETE' })
 }
+
+export default api;

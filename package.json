@@ -9,12 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "create-admin": "ts-node createSuperAdmin.ts"
-
   },
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.0"
+    "react-router-dom": "^7.9.0",
+    "twilio": "^5.10.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
@@ -23,6 +23,7 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@types/react-router-dom": "^5.3.3",
+    "@types/twilio": "^3.19.2",
     "@vitejs/plugin-react": "^5.0.0",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -32,5 +33,4 @@
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"
   }
-  
 }

@@ -42,7 +42,8 @@ export function getRole(): string | null {
 }
 
 export function isAdmin(): boolean {
-  return getRole() === 'admin'
+  const role = getRole();
+  return role === 'admin' || role === 'superadmin';
 }
 
 export function authHeader(): Record<string, string> {
